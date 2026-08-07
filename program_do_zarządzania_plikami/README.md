@@ -9,12 +9,12 @@ i zapisuje go do wskazanego pliku.
 python reader.py <plik_wejsciowy> <plik_wyjsciowy> <zmiana_1> <zmiana_2> ... <zmiana_n>
 ```
 
-Główny kod siedzi w pliku `program do zarządzania plikami.py`. Obok leży `reader.py`, który tylko go
+Główny kod siedzi w pliku `program_do_zarządzania_plikami.py`. Obok leży `reader.py`, który tylko go
 odpala — dzięki temu działa komenda dokładnie z treści zadania, bez walki ze spacjami w nazwie pliku.
-Można też uruchomić główny plik wprost, wtedy nazwę trzeba wziąć w cudzysłów:
+Można też uruchomić główny plik wprost:
 
 ```bash
-python "program do zarządzania plikami.py" in.csv out.csv 0,0,gitara
+python program_do_zarządzania_plikami.py in.csv out.csv 0,0,gitara
 ```
 
 Każda zmiana ma postać `kolumna,wiersz,wartosc` — współrzędne liczone od 0.

@@ -10,7 +10,7 @@ Zadania z kursu Pythona, każda lekcja w osobnym folderze. Kod komentowany prost
 | [Lekcja6_Zapis_do_plikow](Lekcja6_Zapis_do_plikow) | To samo, ale konto, magazyn i historia zapisywane do plików tekstowych | `python magazyn.py` |
 | [Lekcja7_Czytanie_CSV](Lekcja7_Czytanie_CSV) | Odczyt pliku CSV, nałożenie zmian z linii komend i zapis do nowego pliku | `python czytanie.py in.csv out.csv 0,0,gitara` |
 | [Zadanie_Ciag_Collatza](Zadanie_Ciag_Collatza) | Długość ciągu Collatza dla liczby od 1 do 100 (if/else, while) | `python Ciąg_Coltza.py` |
-| [program do zarządzania plikami](program%20do%20zarz%C4%85dzania%20plikami) | Odczyt CSV, zmiany z linii komend, wypisanie i zapis do nowego pliku | `python reader.py in.csv out.csv 0,0,gitara` |
+| [program_do_zarządzania_plikami](program_do_zarz%C4%85dzania_plikami) | Odczyt CSV, zmiany z linii komend, wypisanie i zapis do nowego pliku | `python reader.py in.csv out.csv 0,0,gitara` |
 
 W każdym folderze jest własne README z opisem komend i tym, co z danej lekcji zostało wykorzystane.
 
