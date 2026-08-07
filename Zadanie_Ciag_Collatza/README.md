@@ -11,7 +11,7 @@ Zasada:
 ## Jak uruchomić
 
 ```
-python collatz.py
+python Ciąg_Coltza.py
 ```
 
 Potem wpisujemy liczbę i Enter.
