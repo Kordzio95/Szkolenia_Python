@@ -1,4 +1,4 @@
-# Zadanie: czytanie i modyfikowanie pliku CSV
+# Program do zarządzania plikami
 
 Program odczytuje plik CSV, nanosi na niego zmiany podane w terminalu, wypisuje wynik na ekranie
 i zapisuje go do wskazanego pliku.
@@ -7,6 +7,14 @@ i zapisuje go do wskazanego pliku.
 
 ```bash
 python reader.py <plik_wejsciowy> <plik_wyjsciowy> <zmiana_1> <zmiana_2> ... <zmiana_n>
+```
+
+Główny kod siedzi w pliku `program do zarządzania plikami.py`. Obok leży `reader.py`, który tylko go
+odpala — dzięki temu działa komenda dokładnie z treści zadania, bez walki ze spacjami w nazwie pliku.
+Można też uruchomić główny plik wprost, wtedy nazwę trzeba wziąć w cudzysłów:
+
+```bash
+python "program do zarządzania plikami.py" in.csv out.csv 0,0,gitara
 ```
 
 Każda zmiana ma postać `kolumna,wiersz,wartosc` — współrzędne liczone od 0.
