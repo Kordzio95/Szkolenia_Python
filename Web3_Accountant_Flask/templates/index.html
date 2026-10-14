@@ -1,0 +1,88 @@
+{# ta strona korzysta z szablonu base.html #}
+{% extends "base.html" %}
+{# tu wstawiamy tytul strony #}
+{% block tytul %}Accountant - strona glowna{% endblock %}
+{# poczatek tresci tej podstrony #}
+{% block tresc %}
+<!-- siatka z kartami -->
+<div class="karty">
+  <!-- jedna karta -->
+  <section class="karta">
+    <h2>Stan konta</h2>
+    <p class="saldo">{{ "%.2f"|format(konto) }} zl</p>
+  </section>
+
+  <!-- jedna karta -->
+  <section class="karta">
+    <h2>Stan magazynu</h2>
+    {# jak magazyn nie jest pusty to tabela #}
+    {% if magazyn %}
+    <!-- tabela -->
+    <table>
+      <!-- naglowek tabeli -->
+      <thead><tr><th>Produkt</th><th>Cena</th><th>Ilosc</th></tr></thead>
+      <!-- wiersze z danymi -->
+      <tbody>
+        {# petla po produktach #}
+        {% for nazwa, p in magazyn.items() %}
+        <tr><td>{{ nazwa }}</td><td>{{ "%.2f"|format(p.cena) }}</td><td>{{ p.ilosc }}</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    {% else %}
+    <p class="puste">Magazyn jest pusty.</p>
+    {% endif %}
+  </section>
+</div>
+
+<!-- siatka z kartami -->
+<div class="karty" style="margin-top:16px">
+  <!-- jedna karta -->
+  <section class="karta">
+    <h2>Zakup</h2>
+    <!-- formularz, wysyla dane metoda POST -->
+    <form method="post">
+      <!-- ukryte pole, mowi flaskowi ktory to formularz -->
+      <input type="hidden" name="akcja" value="zakup">
+      <label for="z-nazwa">Nazwa produktu</label>
+      <input id="z-nazwa" name="nazwa" type="text" required>
+      <label for="z-cena">Cena</label>
+      <input id="z-cena" name="cena" type="number" min="0.01" step="0.01" required>
+      <label for="z-ilosc">Ilosc</label>
+      <input id="z-ilosc" name="ilosc" type="number" min="1" step="1" required>
+      <!-- przycisk wysylajacy formularz -->
+      <button type="submit">Kup</button>
+    </form>
+  </section>
+
+  <!-- jedna karta -->
+  <section class="karta">
+    <h2>Sprzedaz</h2>
+    <!-- formularz, wysyla dane metoda POST -->
+    <form method="post">
+      <!-- ukryte pole, mowi flaskowi ktory to formularz -->
+      <input type="hidden" name="akcja" value="sprzedaz">
+      <label for="s-nazwa">Nazwa produktu</label>
+      <input id="s-nazwa" name="nazwa" type="text" required>
+      <label for="s-ilosc">Ilosc</label>
+      <input id="s-ilosc" name="ilosc" type="number" min="1" step="1" required>
+      <!-- przycisk wysylajacy formularz -->
+      <button type="submit">Sprzedaj</button>
+    </form>
+  </section>
+
+  <!-- jedna karta -->
+  <section class="karta">
+    <h2>Zmiana salda</h2>
+    <!-- formularz, wysyla dane metoda POST -->
+    <form method="post">
+      <!-- ukryte pole, mowi flaskowi ktory to formularz -->
+      <input type="hidden" name="akcja" value="saldo">
+      <label for="w-wartosc">Wartosc zmiany (minus = wyplata)</label>
+      <input id="w-wartosc" name="wartosc" type="number" step="0.01" required>
+      <!-- przycisk wysylajacy formularz -->
+      <button type="submit">Zmien saldo</button>
+    </form>
+  </section>
+</div>
+{% endblock %}

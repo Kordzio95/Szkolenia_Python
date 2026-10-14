@@ -1,0 +1,73 @@
+/* Wspolny wyglad dla projektu accountant (ten sam plik jest w zadaniu z Flaskiem i z SQLAlchemy) */
+* { box-sizing: border-box; } /* szerokosc liczy sie razem z ramka i paddingiem, latwiej ukladac */
+
+body { /* cala strona */
+  margin: 0; /* bez marginesu przegladarki dookola */
+  font-family: Arial, Helvetica, sans-serif; /* zwykla czytelna czcionka */
+  background: #f3f5f7; /* jasno szare tlo */
+  color: #1f2933; /* ciemny kolor tekstu */
+}
+
+header { /* gorny pasek */
+  background: #1f3a5f; /* granatowe tlo */
+  color: #fff; /* bialy tekst */
+  padding: 16px 24px; /* odstep w srodku paska */
+  display: flex; /* tytul i menu w jednej linii */
+  justify-content: space-between; /* tytul z lewej, menu z prawej */
+  align-items: center; /* wysrodkowanie w pionie */
+  flex-wrap: wrap; /* na telefonie sie zawija pod spod */
+  gap: 8px; /* odstep miedzy tytulem a menu */
+}
+
+header h1 { margin: 0; font-size: 22px; } /* tytul bez marginesu i troche mniejszy */
+nav a { color: #fff; margin-left: 16px; text-decoration: none; font-weight: bold; } /* linki w menu biale, bez podkreslenia */
+nav a:hover { text-decoration: underline; } /* po najechaniu myszka podkreslenie */
+
+main { max-width: 1100px; margin: 24px auto; padding: 0 16px; } /* tresc wysrodkowana i nie za szeroka */
+
+.karty { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; } /* siatka kart, sama sie dopasowuje do ekranu */
+
+.karta { /* jedna biala karta */
+  background: #fff; /* biale tlo */
+  border-radius: 10px; /* zaokraglone rogi */
+  padding: 18px; /* odstep w srodku */
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08); /* delikatny cien */
+}
+
+.karta h2 { margin-top: 0; font-size: 18px; color: #1f3a5f; } /* naglowek karty granatowy */
+
+.saldo { font-size: 32px; font-weight: bold; color: #2e7d32; } /* duza zielona kwota salda */
+
+table { width: 100%; border-collapse: collapse; } /* tabela na cala szerokosc, bez podwojnych ramek */
+th, td { text-align: left; padding: 8px; border-bottom: 1px solid #e4e7eb; } /* komorki z kreska na dole */
+th { background: #eef2f6; } /* naglowki tabeli na szaro */
+
+label { display: block; margin: 10px 0 4px; font-size: 14px; } /* opis pola nad polem */
+
+input { /* pola formularzy */
+  width: 100%; /* na cala szerokosc karty */
+  padding: 9px; /* zeby bylo wygodnie kliknac na telefonie */
+  border: 1px solid #cbd2d9; /* szara ramka */
+  border-radius: 6px; /* lekko zaokraglone */
+  font-size: 15px; /* czytelna wielkosc */
+}
+
+button { /* przyciski wyslania */
+  margin-top: 14px; /* odstep od pol */
+  width: 100%; /* na cala szerokosc */
+  padding: 10px; /* wiekszy przycisk */
+  border: 0; /* bez ramki */
+  border-radius: 6px; /* zaokraglony */
+  background: #1f3a5f; /* granatowy */
+  color: #fff; /* bialy napis */
+  font-size: 15px; /* wielkosc napisu */
+  cursor: pointer; /* raczka po najechaniu */
+}
+
+button:hover { background: #2b5288; } /* jasniejszy po najechaniu */
+
+.komunikat { padding: 12px 16px; border-radius: 6px; margin-bottom: 16px; } /* ramka na komunikaty flash */
+.komunikat.blad { background: #fdecea; color: #b71c1c; } /* bledy na czerwono */
+.komunikat.ok { background: #e8f5e9; color: #1b5e20; } /* sukces na zielono */
+
+.puste { color: #7b8794; } /* szary tekst jak nic nie ma */

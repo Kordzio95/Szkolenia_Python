@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- typ dokumentu wyzej mowi przegladarce ze to html5 -->
+<!-- strona po polsku -->
+<html lang="pl">
+<head>
+  <!-- kodowanie znakow zeby polskie litery sie nie sypaly -->
+  <meta charset="UTF-8">
+  <!-- zeby na telefonie strona nie byla malutka -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- tytul na karcie przegladarki -->
+  <title>{% block tytul %}Accountant{% endblock %}</title>
+  <!-- podpinamy plik ze stylami css -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <!-- gorny pasek z tytulem -->
+  <header>
+    <h1>Accountant - magazyn i ksiegowosc</h1>
+    <!-- menu z linkami -->
+    <nav>
+      <a href="{{ url_for('index') }}">Strona glowna</a>
+      <a href="{{ url_for('historia') }}">Historia</a>
+    </nav>
+  </header>
+  <!-- glowna tresc strony -->
+  <main>
+    {# bierzemy komunikaty flash z flaska #}
+    {% with komunikaty = get_flashed_messages(with_categories=true) %}
+      {# kazdy komunikat po kolei #}
+      {% for kategoria, tresc in komunikaty %}
+        <div class="komunikat {{ kategoria }}">{{ tresc }}</div>
+      {% endfor %}
+    {% endwith %}
+    {# tu kazda podstrona wstawia swoja tresc #}
+    {% block tresc %}{% endblock %}
+  </main>
+</body>
+</html>
