@@ -1,0 +1,40 @@
+{# ta strona korzysta z szablonu base.html #}
+{% extends "base.html" %}
+{# tu wstawiamy tytul strony #}
+{% block tytul %}Accountant - historia{% endblock %}
+{# poczatek tresci tej podstrony #}
+{% block tresc %}
+<!-- jedna karta -->
+<section class="karta">
+  <h2>Historia operacji</h2>
+  {# jak jest blad zakresu to go pokazujemy #}
+  {% if blad %}
+    <div class="komunikat blad">{{ blad }}</div>
+  {% endif %}
+  {# jak sa jakies wpisy to tabela #}
+  {% if wpisy %}
+  <!-- tabela -->
+  <table>
+    <!-- naglowek tabeli -->
+    <thead><tr><th>Nr</th><th>Operacja</th><th>Produkt</th><th>Cena</th><th>Ilosc</th><th>Kwota</th></tr></thead>
+    <!-- wiersze z danymi -->
+    <tbody>
+      {# petla po operacjach z historii #}
+      {% for nr, op in wpisy %}
+      <tr>
+        <td>{{ nr }}</td>
+        <td>{{ op.rodzaj }}</td>
+        <td>{{ op.produkt or "-" }}</td>
+        <td>{{ "%.2f"|format(op.cena) if op.rodzaj != "saldo" else "-" }}</td>
+        <td>{{ op.ilosc if op.rodzaj != "saldo" else "-" }}</td>
+        <td>{{ "%+.2f"|format(op.kwota) }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  {% elif not blad %}
+    <p class="puste">Brak operacji.</p>
+  {% endif %}
+  <p class="puste">Zapisanych operacji: {{ ile }}. Zakres: /historia/&lt;start&gt;/&lt;koniec&gt;/</p>
+</section>
+{% endblock %}
