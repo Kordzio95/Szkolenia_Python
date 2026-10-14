@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- typ dokumentu wyzej mowi przegladarce ze to html5 -->
+<!-- strona po polsku -->
+<html lang="pl">
+<head>
+  <!-- kodowanie znakow zeby polskie litery sie nie sypaly -->
+  <meta charset="UTF-8">
+  <!-- zeby na telefonie strona nie byla malutka -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- tytul na karcie przegladarki -->
+  <title>Accountant - historia</title>
+  <!-- podpinamy plik ze stylami css -->
+  <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+  <!-- gorny pasek z tytulem -->
+  <header>
+    <h1>Accountant - historia operacji</h1>
+    <!-- menu z linkami -->
+    <nav>
+      <a href="index.html">Strona glowna</a>
+      <a href="historia.html">Historia</a>
+    </nav>
+  </header>
+
+  <!-- glowna tresc strony -->
+  <main>
+    <!--
+      Projekt podstrony. W aplikacji Flask (zad 6) bedzie dostepna pod:
+        /historia/                      -> cala historia
+        /historia/<line_from>/<line_to>/ -> tylko wybrany zakres
+    -->
+    <!-- jedna karta -->
+    <section class="karta">
+      <h2>Historia (wszystkie operacje)</h2>
+      <!-- tabela -->
+      <table>
+        <!-- naglowek tabeli -->
+        <thead>
+          <tr><th>Nr</th><th>Operacja</th><th>Produkt / komentarz</th><th>Cena</th><th>Ilosc</th><th>Kwota</th></tr>
+        </thead>
+        <!-- wiersze z danymi -->
+        <tbody>
+          <tr><td>1</td><td>saldo</td><td>wplata startowa</td><td>-</td><td>-</td><td>+2000,00</td></tr>
+          <tr><td>2</td><td>zakup</td><td>rower</td><td>100,00</td><td>5</td><td>-500,00</td></tr>
+          <tr><td>3</td><td>sprzedaz</td><td>rower</td><td>150,00</td><td>2</td><td>+300,00</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
